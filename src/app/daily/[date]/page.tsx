@@ -18,7 +18,7 @@ export default function Page({ params }: { params: { date: string } }) {
   const [beerIdx, setBeerIdx] = useState(0);
   const [owlIdx, setOwlIdx] = useState(0);
   const [exerciseIdx, setExerciseIdx] = useState(0);
-
+// 
   return (
     <div className="w-full">
       <div className="w-full h-full flex justify-end p-1 sticky top-0 shadow-xl">
