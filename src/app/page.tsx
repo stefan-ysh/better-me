@@ -7,7 +7,7 @@ const dateStr =
   (currentDate.getMonth() + 1).toString().padStart(2, "0") +
   "-" +
   currentDate.getDate().toString().padStart(2, "0");
-
+export const runtime = 'edge' // 'nodejs' (default) | 'edge'
 export default function Home() {
   const router = useRouter();
   router.push("/daily/" + dateStr);
