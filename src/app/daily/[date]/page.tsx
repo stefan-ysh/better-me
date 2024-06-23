@@ -21,18 +21,18 @@ export default function Page({ params }: { params: { date: string } }) {
   const [exerciseIdx, setExerciseIdx] = useState(0);
 // 
   return (
-    <div className="w-full">
-      <div className="w-full h-full flex justify-end p-1 sticky top-0 shadow-xl">
+    <div className="w-full flex flex-col absolute inset-0">
+      <div className="w-full h-10 leading-[40px] flex justify-end p-1 sticky top-0 shadow-xl">
         <CountDwon />
       </div>
-      <div className="flex justify-around md:flex-row flex-col absolute top-8 left-0 right-0 bottom-0">
+      <div className="flex flex-1 justify-around md:flex-row flex-col">
         {/* coffee */}
-        <div className="w-full shadow-xl p-4 text-center flex-1 flex items-center justify-around flex-col">
+        <div className="w-full shadow-xl text-center flex-1 flex items-center justify-around flex-col">
           <Image src="/coffee.svg" alt="logo" width={200} height={200} />
           <TextAnimate text={ "COFFEE * " + coffeeIdx + ' CUP'} type="rollIn" />
           <div className="w-full flex items-center relative overflow-hidden ">
             <button
-              className="btn w-1/4 absolute left-0"
+              className="btn w-1/4 absolute left-5"
               onClick={() => {
                 if (coffeeIdx > 0) {
                   setCoffeeIdx(coffeeIdx - 1);
@@ -57,7 +57,7 @@ export default function Page({ params }: { params: { date: string } }) {
               ))}
             </div>
             <button
-              className="btn w-1/4 absolute right-0"
+              className="btn w-1/4 absolute right-5"
               onClick={() => {
                 if (coffeeIdx < emoji.length - 1) {
                   setCoffeeIdx(coffeeIdx + 1);
@@ -69,12 +69,12 @@ export default function Page({ params }: { params: { date: string } }) {
           </div>
         </div>
         {/* beer */}
-        <div className="w-full shadow-xl p-4 text-center flex-1 flex items-center justify-around flex-col">
+        <div className="w-full shadow-xl text-center flex-1 flex items-center justify-around flex-col">
           <Image src="/beer.svg" alt="logo" width={200} height={200} />
           <TextAnimate text={ "BEER * " + beerIdx + ' CUP'} type="rollIn" />
           <div className="w-full flex items-center relative overflow-hidden ">
             <button
-              className="btn w-1/4 absolute left-0"
+              className="btn w-1/4 absolute left-5"
               onClick={() => {
                 if (beerIdx > 0) {
                   setBeerIdx(beerIdx - 1);
@@ -99,7 +99,7 @@ export default function Page({ params }: { params: { date: string } }) {
               ))}
             </div>
             <button
-              className="btn w-1/4 absolute right-0"
+              className="btn w-1/4 absolute right-5"
               onClick={() => {
                 if (beerIdx < emoji.length - 1) {
                   setBeerIdx(beerIdx + 1);
@@ -111,12 +111,12 @@ export default function Page({ params }: { params: { date: string } }) {
           </div>
         </div>
         {/* stay up late */}
-        <div className="w-full shadow-xl p-4 text-center flex-1 flex items-center justify-around flex-col">
+        <div className="w-full shadow-xl text-center flex-1 flex items-center justify-around flex-col">
           <Image src="/owl.svg" alt="logo" width={200} height={200} />
           <TextAnimate text={ "STAY UP * " + owlIdx + ' H'} type="rollIn" />
           <div className="w-full flex items-center relative overflow-hidden ">
             <button
-              className="btn w-1/4 absolute left-0"
+              className="btn w-1/4 absolute left-5"
               onClick={() => {
                 if (owlIdx > 0) {
                   setOwlIdx(owlIdx - 1);
@@ -141,7 +141,7 @@ export default function Page({ params }: { params: { date: string } }) {
               ))}
             </div>
             <button
-              className="btn w-1/4 absolute right-0"
+              className="btn w-1/4 absolute right-5"
               onClick={() => {
                 if (owlIdx < emoji.length - 1) {
                   setOwlIdx(owlIdx + 1);
@@ -153,12 +153,12 @@ export default function Page({ params }: { params: { date: string } }) {
           </div>
         </div>
         {/* exercise */}
-        <div className="w-full shadow-xl p-4 text-center flex-1 flex items-center justify-around flex-col">
+        <div className="w-full shadow-xl text-center flex-1 flex items-center justify-around flex-col">
           <Image src="/exercise.svg" alt="logo" width={200} height={200} />
           <TextAnimate text={ "EXERCISE * " + exerciseIdx / 2 + ' H'} type="rollIn" />
           <div className="w-full flex items-center relative overflow-hidden ">
             <button
-              className="btn w-1/4 absolute left-0"
+              className="btn w-1/4 absolute left-5"
               onClick={() => {
                 if (exerciseIdx > 0) {
                   setExerciseIdx(exerciseIdx - 1);
@@ -183,7 +183,7 @@ export default function Page({ params }: { params: { date: string } }) {
               ))}
             </div>
             <button
-              className="btn w-1/4 absolute right-0"
+              className="btn w-1/4 absolute right-5"
               onClick={() => {
                 if (exerciseIdx < emoji.length - 1) {
                   setExerciseIdx(exerciseIdx + 1);
