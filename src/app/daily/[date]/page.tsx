@@ -7,18 +7,17 @@ import { TextAnimate } from "@/components/ui/text-animate";
 // 倒计时
 import CountDwon from "@/components/ui/countdown";
 
-// 生成高亮效果
-import { annotate } from "rough-notation";
 import { useState } from "react";
 
 // emoji list
 const emoji = ["🎉", "🙂", "🤔", "😤", "😡", "🤬"];
+const emojiExercise = ['🤬', '😡', '😤', '🤔', '🙂', '🎉'];
 export default function Page({ params }: { params: { date: string } }) {
-  const [el, setEl] = useState<any>({});
+  console.log('[ params.date ] >', params.date)
   const [coffeeIdx, setCoffeeIdx] = useState(0);
   const [beerIdx, setBeerIdx] = useState(0);
+  const [owlIdx, setOwlIdx] = useState(0);
   const [exerciseIdx, setExerciseIdx] = useState(0);
-
 
   return (
     <div className="w-full">
@@ -26,9 +25,10 @@ export default function Page({ params }: { params: { date: string } }) {
         <CountDwon />
       </div>
       <div className="flex justify-around md:flex-row flex-col absolute top-8 left-0 right-0 bottom-0">
+        {/* coffee */}
         <div className="w-full shadow-xl p-4 text-center flex-1 flex items-center justify-around flex-col">
           <Image src="/coffee.svg" alt="logo" width={200} height={200} />
-          <TextAnimate text={ "COFFEE * " + coffeeIdx} type="rollIn" />
+          <TextAnimate text={ "COFFEE * " + coffeeIdx + ' CUP'} type="rollIn" />
           <div className="w-full flex items-center relative overflow-hidden ">
             <button
               className="btn w-1/4 absolute left-0"
@@ -67,9 +67,10 @@ export default function Page({ params }: { params: { date: string } }) {
             </button>
           </div>
         </div>
+        {/* beer */}
         <div className="w-full shadow-xl p-4 text-center flex-1 flex items-center justify-around flex-col">
           <Image src="/beer.svg" alt="logo" width={200} height={200} />
-          <TextAnimate text={ "BEER * " + beerIdx} type="rollIn" />
+          <TextAnimate text={ "BEER * " + beerIdx + ' CUP'} type="rollIn" />
           <div className="w-full flex items-center relative overflow-hidden ">
             <button
               className="btn w-1/4 absolute left-0"
@@ -108,9 +109,52 @@ export default function Page({ params }: { params: { date: string } }) {
             </button>
           </div>
         </div>
+        {/* stay up late */}
         <div className="w-full shadow-xl p-4 text-center flex-1 flex items-center justify-around flex-col">
           <Image src="/owl.svg" alt="logo" width={200} height={200} />
-          <TextAnimate text={ "STAY UP * " + exerciseIdx + ' H'} type="rollIn" />
+          <TextAnimate text={ "STAY UP * " + owlIdx + ' H'} type="rollIn" />
+          <div className="w-full flex items-center relative overflow-hidden ">
+            <button
+              className="btn w-1/4 absolute left-0"
+              onClick={() => {
+                if (owlIdx > 0) {
+                  setOwlIdx(owlIdx - 1);
+                } else {
+                  setOwlIdx(0);
+                }
+              }}
+            >
+              -
+            </button>
+            <div className="w-full items-center flex flex-col text-5xl h-24 ">
+              {emoji.map((item, index) => (
+                <div
+                  style={{
+                    transition: "all 0.5s ease",
+                    top: `${index * 100 - owlIdx * 100}px`,
+                  }}
+                  className="w-24 h-24 absolute leading-[100px]"
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
+            <button
+              className="btn w-1/4 absolute right-0"
+              onClick={() => {
+                if (owlIdx < emoji.length - 1) {
+                  setOwlIdx(owlIdx + 1);
+                }
+              }}
+            >
+              +
+            </button>
+          </div>
+        </div>
+        {/* exercise */}
+        <div className="w-full shadow-xl p-4 text-center flex-1 flex items-center justify-around flex-col">
+          <Image src="/exercise.svg" alt="logo" width={200} height={200} />
+          <TextAnimate text={ "EXERCISE * " + exerciseIdx / 2 + ' H'} type="rollIn" />
           <div className="w-full flex items-center relative overflow-hidden ">
             <button
               className="btn w-1/4 absolute left-0"
@@ -125,7 +169,7 @@ export default function Page({ params }: { params: { date: string } }) {
               -
             </button>
             <div className="w-full items-center flex flex-col text-5xl h-24 ">
-              {emoji.map((item, index) => (
+              {emojiExercise.map((item, index) => (
                 <div
                   style={{
                     transition: "all 0.5s ease",
