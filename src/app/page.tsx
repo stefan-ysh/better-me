@@ -1,4 +1,5 @@
 "use client";
+import { useRouter } from "next/navigation";
 const currentDate = new Date();
 const dateStr =
   currentDate.getFullYear() +
@@ -6,8 +7,9 @@ const dateStr =
   (currentDate.getMonth() + 1).toString().padStart(2, "0") +
   "-" +
   currentDate.getDate().toString().padStart(2, "0");
-location.href = "/daily/" + dateStr;
 
 export default function Home() {
-  return null
+  const router = useRouter();
+  router.push("/daily/" + dateStr);
+  return null;
 }
