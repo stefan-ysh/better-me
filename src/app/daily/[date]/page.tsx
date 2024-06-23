@@ -12,7 +12,7 @@ import { annotate } from "rough-notation";
 import { useState } from "react";
 
 // emoji list
-const emoji = ["🎉", "👍", "😘", "🙂", "🤔", "😤", "😡"];
+const emoji = ["🎉", "🙂", "🤔", "😤", "😡", "🤬"];
 export default function Page({ params }: { params: { date: string } }) {
   const [el, setEl] = useState<any>({});
 
@@ -46,22 +46,10 @@ export default function Page({ params }: { params: { date: string } }) {
       <div className="flex justify-around md:flex-row flex-col absolute top-8 left-0 right-0 bottom-0">
         <div className="w-full shadow-xl p-4 text-center flex-1 flex items-center justify-around flex-col">
           <Image src="/coffee.svg" alt="logo" width={200} height={200} />
-          <div className="w-full items-center flex flex-col text-5xl h-24 overflow-hidden relative">
-            {emoji.map((item, index) => (
-              <div
-                style={{
-                  transition: "all 0.5s ease",
-                  top: `${index * 100 - coffeeIdx * 100}px`,
-                }}
-                className="w-24 h-24 absolute leading-[100px]"
-              >
-                {item}
-              </div>
-            ))}
-          </div>
-          <div className="flex items-center">
+          <TextAnimate text={ "COFFEE * " + coffeeIdx} type="rollIn" />
+          <div className="w-full flex items-center relative overflow-hidden ">
             <button
-              className="btn"
+              className="btn w-1/4 absolute left-0"
               onClick={() => {
                 if (coffeeIdx > 0) {
                   setCoffeeIdx(coffeeIdx - 1);
@@ -72,9 +60,21 @@ export default function Page({ params }: { params: { date: string } }) {
             >
               -
             </button>
-            <TextAnimate text="COFFEE" type="rollIn" />
+            <div className="w-full items-center flex flex-col text-5xl h-24 ">
+              {emoji.map((item, index) => (
+                <div
+                  style={{
+                    transition: "all 0.5s ease",
+                    top: `${index * 100 - coffeeIdx * 100}px`,
+                  }}
+                  className="w-24 h-24 absolute leading-[100px]"
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
             <button
-              className="btn"
+              className="btn w-1/4 absolute right-0"
               onClick={() => {
                 if (coffeeIdx < emoji.length - 1) {
                   setCoffeeIdx(coffeeIdx + 1);
@@ -87,22 +87,10 @@ export default function Page({ params }: { params: { date: string } }) {
         </div>
         <div className="w-full shadow-xl p-4 text-center flex-1 flex items-center justify-around flex-col">
           <Image src="/beer.svg" alt="logo" width={200} height={200} />
-          <div className="w-full items-center flex flex-col text-5xl h-24 overflow-hidden relative">
-            {emoji.map((item, index) => (
-              <div
-                style={{
-                  transition: "all 0.5s ease",
-                  top: `${index * 100 - beerIdx * 100}px`,
-                }}
-                className="w-24 h-24 absolute leading-[100px]"
-              >
-                {item}
-              </div>
-            ))}
-          </div>
-          <div className="flex items-center">
+          <TextAnimate text={ "BEER * " + beerIdx} type="rollIn" />
+          <div className="w-full flex items-center relative overflow-hidden ">
             <button
-              className="btn"
+              className="btn w-1/4 absolute left-0"
               onClick={() => {
                 if (beerIdx > 0) {
                   setBeerIdx(beerIdx - 1);
@@ -113,9 +101,21 @@ export default function Page({ params }: { params: { date: string } }) {
             >
               -
             </button>
-            <TextAnimate text="BEER" type="rollIn" />
+            <div className="w-full items-center flex flex-col text-5xl h-24 ">
+              {emoji.map((item, index) => (
+                <div
+                  style={{
+                    transition: "all 0.5s ease",
+                    top: `${index * 100 - beerIdx * 100}px`,
+                  }}
+                  className="w-24 h-24 absolute leading-[100px]"
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
             <button
-              className="btn"
+              className="btn w-1/4 absolute right-0"
               onClick={() => {
                 if (beerIdx < emoji.length - 1) {
                   setBeerIdx(beerIdx + 1);
