@@ -36,26 +36,15 @@ function getTimeLeftToday() {
   };
 }
 const CountDown = () => {
-  const timeLeft = getTimeLeftToday();
+  const timeLeftTotal = getTimeLeftToday();
 
-  const [h, setH] = useState(timeLeft.hours);
-  const [m, setM] = useState(timeLeft.minutes);
-  const [s, setS] = useState(timeLeft.seconds);
+  const [timeLeft, setTimeLeft] = useState(timeLeftTotal);
 
   const countdown = () => {
     useEffect(() => {
       const interval = setInterval(() => {
-        // 使用方法
-        const timeLeft = getTimeLeftToday();
-        // console.log(
-        //   `Hours: ${timeLeft.hours}, Minutes: ${timeLeft.minutes}, Seconds: ${timeLeft.seconds}`
-        // );
-        const h = timeLeft.hours;
-        const m = timeLeft.minutes;
-        const s = timeLeft.seconds;
-        setH(h);
-        setM(m);
-        setS(s);
+        const timeLeftTotal = getTimeLeftToday();
+        setTimeLeft(timeLeftTotal);
       }, 1000);
       return () => clearInterval(interval);
     }, []);
@@ -66,21 +55,21 @@ const CountDown = () => {
       <div>
         <span className="countdown font-mono text-2xl">
           {/* @ts-ignore */}
-          <span style={{ "--value": h }}></span>
+          <span style={{ "--value": timeLeft.hours }}></span>
         </span>
         hours
       </div>
       <div>
         <span className="countdown font-mono text-2xl">
           {/* @ts-ignore */}
-          <span style={{ "--value": m }}></span>
+          <span style={{ "--value": timeLeft.minutes }}></span>
         </span>
         min
       </div>
       <div>
         <span className="countdown font-mono text-2xl">
           {/* @ts-ignore */}
-          <span style={{ "--value": s }}></span>
+          <span style={{ "--value": timeLeft.seconds }}></span>
         </span>
         sec
       </div>
