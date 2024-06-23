@@ -12,6 +12,7 @@ import { useState } from "react";
 // emoji list
 const emoji = ["🎉", "🙂", "🤔", "😤", "😡", "🤬"];
 const emojiExercise = ['🤬', '😡', '😤', '🤔', '🙂', '🎉'];
+export const runtime = 'edge';
 export default function Page({ params }: { params: { date: string } }) {
   console.log('[ params.date ] >', params.date)
   const [coffeeIdx, setCoffeeIdx] = useState(0);
