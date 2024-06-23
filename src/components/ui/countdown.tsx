@@ -65,18 +65,21 @@ const CountDown = () => {
     <div className="flex gap-5">
       <div>
         <span className="countdown font-mono text-2xl">
+          {/* @ts-ignore */}
           <span style={{ "--value": h }}></span>
         </span>
         hours
       </div>
       <div>
         <span className="countdown font-mono text-2xl">
+          {/* @ts-ignore */}
           <span style={{ "--value": m }}></span>
         </span>
         min
       </div>
       <div>
         <span className="countdown font-mono text-2xl">
+          {/* @ts-ignore */}
           <span style={{ "--value": s }}></span>
         </span>
         sec
