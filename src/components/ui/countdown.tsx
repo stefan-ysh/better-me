@@ -53,21 +53,23 @@ const CountDown = () => {
   return (
     <div className="flex gap-5">
       <div>
-        <span className="countdown font-mono text-2xl">
+        <span className="countdown font-mono text-1xl">
+          {timeLeft.hours.toString().padStart(2, "0")}
           {/* @ts-ignore */}
-          <span style={{ "--value": timeLeft.hours }}></span>
+          {/* <span style={{ "--value": timeLeft.hours }}></span> */}
         </span>
         hours
       </div>
       <div>
-        <span className="countdown font-mono text-2xl">
+        <span className="countdown font-mono text-1xl">
+          {timeLeft.minutes.toString().padStart(2, "0")}
           {/* @ts-ignore */}
-          <span style={{ "--value": timeLeft.minutes }}></span>
+          {/* <span style={{ "--value": timeLeft.minutes }}></span> */}
         </span>
         min
       </div>
       <div>
-        <span className="countdown font-mono text-2xl">
+        <span className="countdown font-mono text-1xl">
           {/* @ts-ignore */}
           <span style={{ "--value": timeLeft.seconds }}></span>
         </span>
