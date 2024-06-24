@@ -51,7 +51,7 @@ const CountDown = () => {
   };
   countdown();
   return (
-    <div className="flex gap-5">
+    <div className="flex gap-1">
       <div>
         <span className="countdown font-mono text-1xl">
           {timeLeft.hours.toString().padStart(2, "0")}
