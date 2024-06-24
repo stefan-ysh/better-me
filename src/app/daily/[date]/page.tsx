@@ -22,7 +22,10 @@ export default function Page({ params }: { params: { date: string } }) {
 // 
   return (
     <div className="w-full flex flex-col absolute inset-0">
-      <div className="w-full h-10 leading-[40px] flex justify-end p-1 sticky top-0 shadow-xl">
+      <div className="w-full h-10 leading-[40px] flex justify-between p-1 sticky top-0 shadow-xl">
+        <span>
+          {params.date}
+        </span>
         <CountDwon />
       </div>
       <div className="flex flex-1 justify-around md:flex-row flex-col">
